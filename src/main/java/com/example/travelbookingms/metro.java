@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 
-public class flight {
-    @GetMapping("/myflight")
+public class metro {
+    @GetMapping("/mymetro")
     public String getData() {
-        return "Please book your air ticket from cleartrip and goibibo";
+        return "Please book your air ticket from metro station booking counter";
 
     }
 }
