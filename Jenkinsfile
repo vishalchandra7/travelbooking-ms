@@ -10,14 +10,14 @@ pipeline {
         maven 'maven-3.8.8'
     }
     stages {
-        stage('Code Compilation') {
+        stage('Jave Code Compilation') {
             steps {
                 echo 'code compilation is starting'
                 sh 'mvn clean compile'
 				echo 'code compilation is completed'
             }
         }
-        stage('Code Package') {
+        stage('Java Code Package') {
             steps {
                 echo 'code packing is starting'
                 sh 'mvn clean package'
