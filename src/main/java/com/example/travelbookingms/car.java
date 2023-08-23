@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  @RestController
 
  public class car {
-    @GetMapping("/mycar")
+    @GetMapping("/car")
     public String getData() {
 
         return "Please book your car ticket";
