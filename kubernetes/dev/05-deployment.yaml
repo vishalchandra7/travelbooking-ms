@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-travelbooking-deployment
+  namespace: dev
+  labels:
+    env: dev
+    app: travelbooking-ms
+    layer: frontend
+spec:
+  replicas: 4
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 100%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        env: dev
+        app: travelbooking-ms
+        layer: frontend
+    spec:
+      serviceAccountName: dev-travelbooking-sa
+  containers:
+  -name: travelling-ms
+   image: 675627188226.dkr.ecr.us-east-1.amazonaws.com/travelbooking-ms:latest
+    resources:
+        requests:
+          memory: 50Mi
+          cpu: 50m
+        limits:
+          memory: 100Mi
+          cpu: 100m
+    ports:
+        - containerPort: 8080
+          name: api
+    volumeMounts:
+        - mountPath: /app/config
+          name: application-config
+    volumes:
+        - name: application-config
+          configMap:
+            name: dev-travelbooking-application-config

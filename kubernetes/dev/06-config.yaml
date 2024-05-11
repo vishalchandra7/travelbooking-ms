@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dev-travelbooking-application-config
+  namespace: dev
+  labels:
+    env: dev
+    app: travelbooking-ms
+    layer: frontend
+data:
+  application.properties: |-
