@@ -85,7 +85,7 @@ pipeline {
          stage('Deploy App to K8s Cluster') {
              steps {
                  sh 'whoami'
-                 sh 'kubectl apply -f kubernetes/travelbooking-ms-dev'
+                 sh 'kubectl apply -f kubernetes/dev'
              }
          }
 
