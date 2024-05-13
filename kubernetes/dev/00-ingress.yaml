@@ -1,12 +1,13 @@
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: dev-travelbooking-ingress
+  namespace: dev
   labels:
     env: dev
     app: travelbooking-ms
     layer: frontend
-  name: dev-travelbooking-ingress
-  namespace: dev
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -14,7 +15,6 @@ spec:
     - host: travelbooking.cloudgeek.in
       http:
         paths:
-          -backend:
-            serviceName:dev-cloudgeek-service
-            servicePort:8080
-           path:/
+          -backend: |-
+            serviceName:prod-cloudgeek-service servicePort:8080
+            path:/
