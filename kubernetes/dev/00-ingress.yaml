@@ -16,5 +16,5 @@ spec:
       http:
         paths:
           -backend: |-
-            serviceName:prod-cloudgeek-service servicePort:8080
+            serviceName:prod-cloudgeek-service servicePort:80
             path:/
